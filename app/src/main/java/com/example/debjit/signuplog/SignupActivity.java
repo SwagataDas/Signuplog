@@ -49,6 +49,7 @@ public class SignupActivity extends AppCompatActivity  {
     ImageView imageView;
     private String userChoosenTask;
 
+    public SignupActivity(){}
     public SignupActivity(int mYear) {
         this.mYear = mYear;
     }
