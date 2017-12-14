@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Signuplog.iml" filepath="$PROJECT_DIR$/.idea/Signuplog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Signuplog.iml" filepath="$PROJECT_DIR$/Signuplog.iml" />
+      <module fileurl="file://C:\Users\Debjit\AndroidStudioProjects\Signuplog\.idea\Signuplog.iml" filepath="C:\Users\Debjit\AndroidStudioProjects\Signuplog\.idea\Signuplog.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
