@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,9 +39,9 @@ public class SignupActivity extends AppCompatActivity  {
     Button signupButton, asubutton;
     ImageView calenderButton;
     ImageView profilepic,backbtn;
-    TextView textView;
     EditText dob, firstname, lastname, emailid, password;
     RadioGroup radioGroup;
+    RadioButton male,female;
     DatePickerDialog datePickerDialog;
     private int mYear, mMonth, mDay;
     private int PICK_IMAGE_REQUEST = 1;
@@ -48,7 +49,7 @@ public class SignupActivity extends AppCompatActivity  {
     Integer REQUEST_CAMERA = 1, SELECT_FILE = 0;
     ImageView imageView;
     private String userChoosenTask;
-
+    private  String gender;
     public SignupActivity(){}
     public SignupActivity(int mYear) {
         this.mYear = mYear;
@@ -76,6 +77,8 @@ public class SignupActivity extends AppCompatActivity  {
         emailid = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
         calenderButton = (ImageView) findViewById(R.id.dobbtn);
+        male = (RadioButton) findViewById(R.id.male);
+        female = (RadioButton) findViewById(R.id.female);
         asubutton = (Button) findViewById(R.id.asu);
         asubutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,6 +144,8 @@ public class SignupActivity extends AppCompatActivity  {
                 String lname = lastname.getText().toString();
                 String ps = password.getText().toString();
 
+                String dateofbirth = dob.getText().toString();
+
                 if (TextUtils.isEmpty(fname))
                     Toast.makeText(SignupActivity.this, "Please enter your first name", LENGTH_SHORT).show();
                 else if (TextUtils.isEmpty(lname))
@@ -152,7 +157,13 @@ public class SignupActivity extends AppCompatActivity  {
                     if (b) {
                         Toast.makeText(SignupActivity.this, "Registration Successful", LENGTH_SHORT).show();
                         Intent intent3;
-                        intent3 = new Intent(SignupActivity.this,LoginActivity.class);
+                        intent3 = new Intent(SignupActivity.this,UserprofileActivity.class);
+                        intent3.putExtra("firstname",fname);
+                        intent3.putExtra("lastname",lname);
+                        intent3.putExtra("email",email);
+                        intent3.putExtra("gender",gender);
+                        intent3.putExtra("dob",dateofbirth);
+
                         startActivity(intent3);
                     } else
                         Toast.makeText(SignupActivity.this, "Enter Valid Email", LENGTH_SHORT).show();

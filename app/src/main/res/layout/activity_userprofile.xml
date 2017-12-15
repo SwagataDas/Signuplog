@@ -1,37 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
     android:background="@drawable/google"
-    tools:context="com.example.debjit.signuplog.UserprofileActivity">
+    android:orientation="vertical">
 
     <RelativeLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#3f51b5">
 
         <ImageView
             android:id="@+id/backbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:paddingTop="10dp"
-            android:src="@drawable/ic_backarrow" />
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:src="@drawable/ic_backarrow"/>
 
         <TextView
             android:id="@+id/tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="User Accounts"
+            android:text="User details"
             android:textStyle="bold"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:textColor="#FFFF"
-            />
+            android:textColor="#fff"
+            android:textSize="20sp" />
     </RelativeLayout>
 
-</android.support.constraint.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/dp"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:src="@drawable/image"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FF000000"/>
+
+            <RelativeLayout
+                android:layout_width="200dp"
+                android:layout_height="30dp">
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/firstname"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                android:hint="First Name"
+                android:inputType="textCapWords"
+                android:textSize="18dp" />
+
+            <RelativeLayout
+                android:layout_width="200dp"
+                android:layout_height="30dp">
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/lastname"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:hint="Last Name"
+                android:inputType="textCapSentences"
+                android:textSize="18dp"
+                />
+
+            <RelativeLayout
+                android:layout_width="200dp"
+                android:layout_height="30dp">
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="Email"
+                android:textSize="18sp" />
+
+            <RelativeLayout
+                android:layout_width="200dp"
+                android:layout_height="30dp">
+            </RelativeLayout>
+
+            <TextView
+                    android:id="@+id/dob"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="left|center_vertical"
+                    android:hint="Date of Birth"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="18sp" />
+
+            <RelativeLayout
+                android:layout_width="200dp"
+                android:layout_height="30dp">
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/gender"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:gravity="left|center_vertical"
+                android:hint="Gender"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
