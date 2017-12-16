@@ -26,13 +26,13 @@ public class UserprofileActivity extends AppCompatActivity {
         String firstname = intent3.getStringExtra("firstname");
         String lastname = intent3.getStringExtra("lastname");
         String email = intent3.getStringExtra("email");
-        String gender = intent3.getStringExtra("gender");
+        String sex = intent3.getStringExtra("gender");
         String dob = intent3.getStringExtra("dob");
 
         t1.append(firstname);
         t2.append(lastname);
         t3.append(email);
-        t4.append(gender);
+        t4.append(sex);
         t5.append(dob);
     }
 }

@@ -41,7 +41,7 @@ public class SignupActivity extends AppCompatActivity  {
     ImageView profilepic,backbtn;
     EditText dob, firstname, lastname, emailid, password;
     RadioGroup radioGroup;
-    RadioButton male,female;
+    RadioButton gender;
     DatePickerDialog datePickerDialog;
     private int mYear, mMonth, mDay;
     private int PICK_IMAGE_REQUEST = 1;
@@ -49,7 +49,6 @@ public class SignupActivity extends AppCompatActivity  {
     Integer REQUEST_CAMERA = 1, SELECT_FILE = 0;
     ImageView imageView;
     private String userChoosenTask;
-    private  String gender;
     public SignupActivity(){}
     public SignupActivity(int mYear) {
         this.mYear = mYear;
@@ -63,6 +62,7 @@ public class SignupActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_signup);
 
         signupButton = (Button) findViewById(R.id.signup);
+        myListner();
         profilepic = (ImageView) findViewById(R.id.dp);
         profilepic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,8 +77,6 @@ public class SignupActivity extends AppCompatActivity  {
         emailid = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
         calenderButton = (ImageView) findViewById(R.id.dobbtn);
-        male = (RadioButton) findViewById(R.id.male);
-        female = (RadioButton) findViewById(R.id.female);
         asubutton = (Button) findViewById(R.id.asu);
         asubutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,16 +119,23 @@ public class SignupActivity extends AppCompatActivity  {
             }
         });
         Intent intent2 = getIntent();
+    }
 
+        public void myListner(){
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int rgs_id = radioGroup.getCheckedRadioButtonId();
+                findViewById(rgs_id);
+
+                gender = (RadioButton) findViewById(rgs_id);
                 if (validationSuccess()) {
                     Intent intent3 = new Intent(SignupActivity.this, UserprofileActivity.class);
                     startActivity(intent3);
                 } else {
 
                 }
+
             }
 
             private boolean validationSuccess() {
@@ -143,7 +148,7 @@ public class SignupActivity extends AppCompatActivity  {
                 String fname = firstname.getText().toString();
                 String lname = lastname.getText().toString();
                 String ps = password.getText().toString();
-
+                String sex = gender.getText().toString();
                 String dateofbirth = dob.getText().toString();
 
                 if (TextUtils.isEmpty(fname))
@@ -161,9 +166,8 @@ public class SignupActivity extends AppCompatActivity  {
                         intent3.putExtra("firstname",fname);
                         intent3.putExtra("lastname",lname);
                         intent3.putExtra("email",email);
-                        intent3.putExtra("gender",gender);
+                        intent3.putExtra("gender",sex);
                         intent3.putExtra("dob",dateofbirth);
-
                         startActivity(intent3);
                     } else
                         Toast.makeText(SignupActivity.this, "Enter Valid Email", LENGTH_SHORT).show();
