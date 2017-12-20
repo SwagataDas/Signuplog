@@ -6,8 +6,10 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -49,13 +51,8 @@ public class SignupActivity extends AppCompatActivity  {
     Integer REQUEST_CAMERA = 1, SELECT_FILE = 0;
     ImageView imageView;
     private String userChoosenTask;
-    public SignupActivity(){}
-    public SignupActivity(int mYear) {
-        this.mYear = mYear;
-    }
+    Bitmap bm = null;
 
-    //@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +88,8 @@ public class SignupActivity extends AppCompatActivity  {
             }
         });
         radioGroup = (RadioGroup) findViewById(R.id.radiogroup);
+        //RadioButton rb=findViewById(radioGroup.getCheckedRadioButtonId());
+        //rb.getText();
         backbtn = (ImageView) findViewById(R.id.backbtn);
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,15 +147,28 @@ public class SignupActivity extends AppCompatActivity  {
                 String fname = firstname.getText().toString();
                 String lname = lastname.getText().toString();
                 String ps = password.getText().toString();
-                String sex = gender.getText().toString();
                 String dateofbirth = dob.getText().toString();
+                String sex = gender.getText().toString();
+
+                SharedPreferences sharedPreferences = getSharedPreferences("sd.avalgate@gmail.com", MODE_PRIVATE);
+
+
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("emailid", email);
+                editor.putString("firstname", fname);
+                editor.putString("lastname", lname);
+                editor.putString("password", ps);
+                editor.putString("dob", dateofbirth);
+                editor.putString("gender",sex );
+                editor.commit();
+
 
                 if (TextUtils.isEmpty(fname))
                     Toast.makeText(SignupActivity.this, "Please enter your first name", LENGTH_SHORT).show();
                 else if (TextUtils.isEmpty(lname))
                     Toast.makeText(SignupActivity.this, "Please enter your last name", LENGTH_SHORT).show();
                 else if (TextUtils.isEmpty(ps)||ps.length()<8)
-                    Toast.makeText(SignupActivity.this, "Password Minimum 8 characters", LENGTH_SHORT).show();
+                    Toast.makeText(SignupActivity.this, "Password minimum 8 characters", LENGTH_SHORT).show();
                 else {
                     Boolean b = isValidEmail(email);
                     if (b) {
@@ -168,6 +180,7 @@ public class SignupActivity extends AppCompatActivity  {
                         intent3.putExtra("email",email);
                         intent3.putExtra("gender",sex);
                         intent3.putExtra("dob",dateofbirth);
+                        intent3.putExtra("BitmapImage", bm);
                         startActivity(intent3);
                     } else
                         Toast.makeText(SignupActivity.this, "Enter Valid Email", LENGTH_SHORT).show();
@@ -262,6 +275,8 @@ public class SignupActivity extends AppCompatActivity  {
 
         File destination = new File(Environment.getExternalStorageDirectory(),
                 System.currentTimeMillis() + ".jpg");
+        Bitmap bitmap = BitmapFactory.decodeFile(destination.getAbsolutePath());
+
 
         FileOutputStream fo;
         try {
@@ -274,14 +289,14 @@ public class SignupActivity extends AppCompatActivity  {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        bm = thumbnail;
         profilepic.setImageBitmap(thumbnail);
     }
 
     @SuppressWarnings("deprecation")
     private void onSelectFromGalleryResult(Intent data) {
 
-        Bitmap bm = null;
+
         if (data != null) {
             try {
                 bm = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), data.getData());

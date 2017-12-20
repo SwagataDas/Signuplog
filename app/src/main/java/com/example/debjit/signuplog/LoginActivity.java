@@ -2,6 +2,7 @@ package com.example.debjit.signuplog;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -19,6 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button login;
     private ImageView backbtn;
     private CharSequence target;
+    String pref1,pref2,pref3,pref4,pref5,pref6;
 
 
     @Override
@@ -29,6 +31,9 @@ public class LoginActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.password);
         login = (Button) findViewById(R.id.login);
         backbtn = (ImageView) findViewById(R.id.backbtn);
+
+
+
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,12 +48,7 @@ public class LoginActivity extends AppCompatActivity {
                 String email = mail.getText().toString();
                 String ps = password.getText().toString();
 
-                SharedPreferences sharedPreferences = getSharedPreferences("sd.avalgate@gmail.com", MODE_PRIVATE);
 
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("mail", "sd.avalgate@gmail.com");
-                editor.putString("password", "swagata123");
-                editor.apply();
 
                 if (TextUtils.isEmpty(ps)||ps.length()<8)
                     Toast.makeText(LoginActivity.this, "Password Minimum 8 characters", LENGTH_SHORT).show();
@@ -56,9 +56,9 @@ public class LoginActivity extends AppCompatActivity {
                     Boolean b = isValidEmail(email);
                     if (b) {
                         Toast.makeText(LoginActivity.this, "Login Successfully", LENGTH_SHORT).show();
-                        Intent intent4;
-                        intent4 = new Intent(LoginActivity.this,UserprofileActivity.class);
-                        startActivity(intent4);
+                        Intent intent3;
+                        intent3 = new Intent(LoginActivity.this,UserprofileActivity.class);
+                        startActivity(intent3);
                     } else
                         Toast.makeText(LoginActivity.this, "Enter Valid Email", LENGTH_SHORT).show();
                 }
