@@ -117,6 +117,12 @@ public class SignupActivity extends AppCompatActivity  {
                 datePickerDialog.show();
             }
         });
+        dob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calenderButton.performClick();
+            }
+        });
         Intent intent2 = getIntent();
     }
 

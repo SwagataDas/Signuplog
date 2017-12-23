@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
     android:background="@drawable/google"
+    android:gravity="center_horizontal"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -16,7 +16,7 @@
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:padding="5dp"
-            android:src="@drawable/ic_backarrow"/>
+            android:src="@drawable/ic_backarrow" />
 
         <TextView
             android:id="@+id/tv"
@@ -24,9 +24,9 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="Sign Up"
-            android:textStyle="bold"
             android:textColor="#fff"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -35,14 +35,13 @@
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/dp"
             android:layout_width="96dp"
             android:layout_height="96dp"
             android:src="@drawable/image"
-            app:civ_border_width="2dp"
-            app:civ_border_color="#FF000000"/>
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp" />
 
     </RelativeLayout>
 
@@ -64,8 +63,8 @@
                 android:layout_marginRight="15dp"
                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                 android:hint="First Name"
-                android:singleLine="true"
                 android:inputType="textCapWords"
+                android:singleLine="true"
                 android:textSize="18dp" />
 
             <EditText
@@ -76,10 +75,9 @@
                 android:layout_marginRight="15dp"
                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="Last Name"
-                android:singleLine="true"
                 android:inputType="textCapSentences"
-                android:textSize="18dp"
-                />
+                android:singleLine="true"
+                android:textSize="18dp" />
 
             <EditText
                 android:id="@+id/email"
@@ -102,32 +100,43 @@
                 android:textSize="18sp" />
 
             <RelativeLayout
-                android:layout_width="360dp"
+                android:layout_width="345dp"
                 android:layout_height="40dp">
 
-                <EditText
+                <TextView
                     android:id="@+id/dob1"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
+                    android:layout_marginRight="15dp"
                     android:gravity="left|center_vertical"
                     android:hint="Date of Birth"
                     android:singleLine="true"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginLeft="15dp"
                     android:textSize="18sp" />
 
                 <ImageView
                     android:id="@+id/dobbtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_calender"
                     android:layout_alignParentRight="true"
-                    android:paddingRight="10dp"
-                    />
+                    android:src="@drawable/ic_calender" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#000000"/>
 
             </RelativeLayout>
+
+            <TextView
+                android:id="@+id/gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gender:"
+                android:textColor="#000000"
+                android:textSize="18sp" />
 
             <RadioGroup
                 android:id="@+id/radiogroup"
@@ -136,14 +145,6 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/gender"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Gender:"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
 
                 <RadioButton
                     android:id="@+id/male"
@@ -171,12 +172,12 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:background="#c5e1a5"
+                android:drawableLeft="@drawable/sign"
                 android:text="Sign Up"
                 android:textAllCaps="false"
                 android:textColor="#000000"
-                android:background="#c5e1a5"
-                android:textSize="18dp"
-                android:drawableLeft="@drawable/sign"/>
+                android:textSize="18dp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
