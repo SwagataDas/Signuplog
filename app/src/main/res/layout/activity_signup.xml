@@ -64,6 +64,7 @@
                 android:layout_marginRight="15dp"
                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                 android:hint="First Name"
+                android:singleLine="true"
                 android:inputType="textCapWords"
                 android:textSize="18dp" />
 
@@ -75,6 +76,7 @@
                 android:layout_marginRight="15dp"
                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="Last Name"
+                android:singleLine="true"
                 android:inputType="textCapSentences"
                 android:textSize="18dp"
                 />
@@ -86,6 +88,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:hint="Email"
+                android:singleLine="true"
                 android:textSize="18sp" />
 
             <EditText
@@ -110,6 +113,7 @@
                     android:layout_alignParentTop="true"
                     android:gravity="left|center_vertical"
                     android:hint="Date of Birth"
+                    android:singleLine="true"
                     android:layout_marginRight="15dp"
                     android:layout_marginLeft="15dp"
                     android:textSize="18sp" />
